@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-nodejs-1
+  namespace: "test1"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-nodejs-1
+      version: v1
+  template:
+    metadata:
+      labels:
+        app: test-nodejs-1
+        version: v1
+    spec:
+      serviceAccountName: test-nodejs-1
+      containers:
+      - image: aharonrossano/test-nodejs-express-server:1.0
+      # - image: nginxdemos/hello
+        imagePullPolicy: IfNotPresent
+        name: test-nodejs-1
+        ports:
+        - containerPort: 3000
