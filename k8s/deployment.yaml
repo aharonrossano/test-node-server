@@ -17,9 +17,9 @@ spec:
     spec:
       serviceAccountName: test-nodejs-1
       containers:
-      - image: aharonrossano/test-nodejs-express-server:1.0
+      - image: aharonrossano/test-nodejs-express-server
       # - image: nginxdemos/hello
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always # IfNotPresent
         name: test-nodejs-1
         ports:
         - containerPort: 3000
